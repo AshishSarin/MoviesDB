@@ -8,7 +8,14 @@ const getMovieList = (currentPage) => {
     return Api.fetchMovies(page)
         .then(data => {
             return { movieList: data.results, page: data.page };
-        });
+        })
+        .catch(error => {
+            // TODO: Show a toast message or an error screen here
+            // TODO: In case of auth error, navigate user to login screen
+            // For now showing alert message in case of error
+            alert(error.message);
+            throw error;
+        })
 }
 
 const updateLikedMovies = (movieId, currentStatus) => {
