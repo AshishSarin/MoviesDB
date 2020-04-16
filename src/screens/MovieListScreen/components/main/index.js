@@ -41,12 +41,12 @@ class MovieListScreen extends Component {
 
 
     renderMovieList = () => {
-        const { movieList, likedMoviesIdList } = this.props;
+        const { movieList, likedMoviesIdList, isLoading } = this.props;
         if (Boolean(this.props?.movieList?.length > 0)) {
             return (
                 <FlatList
                     bounces={false}
-                    extraData={likedMoviesIdList}
+                    extraData={[likedMoviesIdList, isLoading]}
                     keyExtractor={Utils.keyExtractor}
                     contentContainerStyle={styles.movieList}
                     ListFooterComponent={this.renderLoadMore}
