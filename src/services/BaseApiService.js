@@ -64,3 +64,4 @@ const handleApiResponse = (response) => {
 export default {
     get, post
 }
+// This is a test comment
